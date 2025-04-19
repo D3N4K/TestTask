@@ -1,0 +1,49 @@
+﻿<Window x:Class="TestTskApp.Windows.DataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestTskApp.Windows"
+        mc:Ignorable="d"
+        Title="DataWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2.5*"/>
+        </Grid.RowDefinitions>
+        <Menu Height="65" VerticalAlignment="Top">
+            <MenuItem Height="60" Header="Импорт файла" x:Name="miImportFile" FontSize="18">
+                <MenuItem Header="Импорт файла Excel" Name="miImportExcel" Click="miImportExcel_Click"/>
+                <MenuItem Header="Импорт файла csv" Name="miImportCsv" Click="miImportCsv_Click"/>
+            </MenuItem>
+        </Menu>
+        <DataGrid x:Name="dgData"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  Cursor="Hand"
+                  Grid.Row="1"
+                  Margin="10"
+                  FontSize="15" SelectionChanged="dgData_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Distance" Width="*" Binding="{Binding Distance}"/>
+                <DataGridTextColumn Header="Angle" Width="*" Binding="{Binding Angle}"/>
+                <DataGridTextColumn Header="Width" Width="*" Binding="{Binding Width}"/>
+                <DataGridTextColumn Header="Height" Width="*" Binding="{Binding Height}"/>
+                <DataGridTextColumn Header="IsDefect" Width="*" Binding="{Binding IsDefect}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="10">
+            <StackPanel Orientation="Vertical" Grid.Row="2" Margin="10" Width="100">
+                <TextBlock x:Name="tbName" FontWeight="Bold" FontSize="15"/>
+                <TextBlock x:Name="tbDistance" FontWeight="Bold" FontSize="15"/>
+                <TextBlock x:Name="tbAngle" FontWeight="Bold" FontSize="15"/>
+                <TextBlock x:Name="tbWidth" FontWeight="Bold" FontSize="15"/>
+                <TextBlock x:Name="tbHeight" FontWeight="Bold" FontSize="15"/>
+                <TextBlock x:Name="tbIsDefect" FontWeight="Bold" FontSize="15"/>
+            </StackPanel>
+            <Canvas x:Name="canvasObject" Width="650" Height="235" Background="LightSlateGray"/>
+        </StackPanel>
+    </Grid>
+</Window>
